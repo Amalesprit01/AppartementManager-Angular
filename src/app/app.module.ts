@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ApartementComponent } from './apartement/apartement.component';
-import { ResidenceComponent } from './residence/residence.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card'; // Import MatCardModule
 import { MatInputModule } from '@angular/material/input'; // Import MatInputModule
-import { ResidenceService } from './service/residence.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { MatTableModule } from '@angular/material/table';
-import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
-import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTableModule } from '@angular/material/table';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ApartementComponent } from './apartement/apartement.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { ResidenceComponent } from './residence/residence.component';
+import { ResidenceService } from './service/residence.service';
 
 
 @NgModule({
@@ -32,7 +32,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatTableModule,
     MatButtonModule,
     MatListModule,
-    MatGridListModule
+    FormsModule
   ],
   providers: [ResidenceService],
   bootstrap: [AppComponent]

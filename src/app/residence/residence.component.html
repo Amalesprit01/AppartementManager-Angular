@@ -1,43 +1,62 @@
 <div class="residence-container">
-    <h1 class="title">Liste des Résidences et Appartements</h1>
-  
-    <!-- Conteneur Flexbox pour une mise en page horizontale -->
-    <div class="residence-list">
-      <div class="residence-item" *ngFor="let residence of residences">
-        <mat-card class="residence-card">
-          <mat-card-header>
-            <mat-card-title>{{ residence.name }}</mat-card-title>
-            <mat-card-subtitle>{{ residence.address }}</mat-card-subtitle>
-          </mat-card-header>
-  
-          <mat-card-content>
-            <p>
-              <strong>Statut : </strong>
-              <span
-                [ngClass]="residence.status === 'Disponible' ? 'status-available' : 'status-unavailable'">
-                {{ residence.status }}
-              </span>
-            </p>
-  
-            <h3>Appartements :</h3>
-            <mat-list>
-              <mat-list-item *ngFor="let apt of residence.apartments">
-                <div>
-                  <p><strong>Numéro :</strong> {{ apt.apartNum }}</p>
-                  <p><strong>Étage :</strong> {{ apt.floorNum }}</p>
-                  <p><strong>Surface :</strong> {{ apt.surface }} m²</p>
-                  <p><strong>Terrasse :</strong> {{ apt.terrace ? 'Oui' : 'Non' }}</p>
-                </div>
-              </mat-list-item>
-            </mat-list>
-          </mat-card-content>
-  
-          <mat-card-actions>
-            <button mat-raised-button color="primary">Voir Détails</button>
-            <button mat-button color="warn">Supprimer</button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
+  <h1 class="title">Liste des Résidences</h1>
+  <div class="residence-list">
+    <div
+      class="residence-item"
+      *ngFor="let residence of residences"
+      (click)="selectResidence(residence)"
+      [ngClass]="{ selected: selectedResidence?.id === residence.id }"
+    >
+      <mat-card class="residence-card">
+        <mat-card-header>
+          <mat-card-title>{{ residence.name }}</mat-card-title>
+          <mat-card-subtitle>{{ residence.address }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            <strong>Nombre d'appartements : </strong> {{ residence.apartments.length }}
+          </p>
+        </mat-card-content>
+      </mat-card>
     </div>
   </div>
-  
+
+  <div class="search-container" style="margin-top: 16px;">
+    <mat-form-field appearance="outline" style="width: 25vw;">
+      <mat-label>Rechercher un appartement par surface</mat-label>
+      <input matInput [(ngModel)]="searchSurface" placeholder="Entrez une surface (m²)" type="number" />
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="searchApartment()" style="margin-left: 16px;">Rechercher</button>
+  </div>
+
+  <!-- Affichage des appartements de la résidence sélectionnée -->
+  <div *ngIf="selectedResidence || searchSurface != null" class="apartments-container">
+    <h2 *ngIf="selectedResidence">Appartements de {{ selectedResidence.name }}</h2>
+    <h2 *ngIf="searchSurface">Appartements à {{searchSurface}}m²</h2>
+    
+    <table class="apartments-table">
+      <thead>
+        <tr>
+          <th>Numéro</th>
+          <th>Étage</th>
+          <th>Surface</th>
+          <th>Terrasse</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let apt of filteredApartments || selectedResidence?.apartments; let i = index">
+          <td>{{ apt.apartNum }}</td>
+          <td>{{ apt.floorNum }}</td>
+          <td>{{ apt.surface }} m²</td>
+          <td>{{ apt.terrace ? "Oui" : "Non" }}</td>
+          <td>
+            <button (click)="buyApartment(i, apt)" class="btn btn-success">
+              Acheter
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
