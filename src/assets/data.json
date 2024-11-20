@@ -1,0 +1,88 @@
+[
+  {
+    "id": 1,
+    "name": "Résidence Belle Vue",
+    "address": "123 Rue Principale",
+    "status": "Disponible",
+    "apartments": [
+      {
+        "apartNum": 101,
+        "floorNum": 1,
+        "surface": 75,
+        "terrace": true
+      },
+      {
+        "apartNum": 102,
+        "floorNum": 1,
+        "surface": 65,
+        "terrace": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Résidence Les Pins",
+    "address": "456 Rue des Pins",
+    "status": "Complet",
+    "apartments": [
+      {
+        "apartNum": 201,
+        "floorNum": 2,
+        "surface": 80,
+        "terrace": true
+      },
+      {
+        "apartNum": 202,
+        "floorNum": 2,
+        "surface": 70,
+        "terrace": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Résidence Soleil Levant",
+    "address": "789 Avenue des Lumières",
+    "status": "Disponible",
+    "apartments": [
+      {
+        "apartNum": 301,
+        "floorNum": 3,
+        "surface": 90,
+        "terrace": true
+      },
+      {
+        "apartNum": 302,
+        "floorNum": 3,
+        "surface": 85,
+        "terrace": true
+      },
+      {
+        "apartNum": 303,
+        "floorNum": 3,
+        "surface": 50,
+        "terrace": false
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Résidence Jardin Fleuri",
+    "address": "12 Rue des Fleurs",
+    "status": "Complet",
+    "apartments": [
+      {
+        "apartNum": 401,
+        "floorNum": 4,
+        "surface": 100,
+        "terrace": true
+      },
+      {
+        "apartNum": 402,
+        "floorNum": 4,
+        "surface": 95,
+        "terrace": false
+      }
+    ]
+  }
+]

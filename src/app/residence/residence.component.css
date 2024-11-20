@@ -1,0 +1,69 @@
+.residence-container {
+    margin: 20px;
+    padding: 10px;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 24px;
+    color: #3f51b5;
+    margin-bottom: 20px;
+  }
+  
+  .residence-list {
+    display: flex; /* Active le mode Flexbox */
+    flex-wrap: wrap; /* Permet le retour à la ligne si les éléments débordent */
+    gap: 20px; /* Espacement entre les cartes */
+    justify-content: space-evenly; /* Répartit les éléments horizontalement */
+  }
+  
+  .residence-item {
+    flex: 1 1 calc(45% - 20px); /* Largeur des cartes (45% avec une marge) */
+    max-width: 400px; /* Largeur maximale */
+  }
+  
+  .residence-card {
+    width: 100%; /* Occupe toute la largeur allouée */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+  }
+  
+  .status-available {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .status-unavailable {
+    color: red;
+    font-weight: bold;
+  }
+  
+  mat-list {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0;
+  }
+  
+  mat-list-item {
+    padding: 5px 10px; /* Réduit l'espace autour de chaque élément */
+    margin: 5px 0; /* Réduit l'espace entre les éléments de la liste */
+    display: flex;
+    flex-direction: column; /* Affiche les informations sous forme de colonne */
+  }
+  
+  mat-list-item div {
+    margin: 0; /* Retirer toute marge supplémentaire autour du contenu */
+  }
+  
+  mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Stylisation des boutons dans la carte */
+  button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  

@@ -1,0 +1,43 @@
+<div class="residence-container">
+    <h1 class="title">Liste des Résidences et Appartements</h1>
+  
+    <!-- Conteneur Flexbox pour une mise en page horizontale -->
+    <div class="residence-list">
+      <div class="residence-item" *ngFor="let residence of residences">
+        <mat-card class="residence-card">
+          <mat-card-header>
+            <mat-card-title>{{ residence.name }}</mat-card-title>
+            <mat-card-subtitle>{{ residence.address }}</mat-card-subtitle>
+          </mat-card-header>
+  
+          <mat-card-content>
+            <p>
+              <strong>Statut : </strong>
+              <span
+                [ngClass]="residence.status === 'Disponible' ? 'status-available' : 'status-unavailable'">
+                {{ residence.status }}
+              </span>
+            </p>
+  
+            <h3>Appartements :</h3>
+            <mat-list>
+              <mat-list-item *ngFor="let apt of residence.apartments">
+                <div>
+                  <p><strong>Numéro :</strong> {{ apt.apartNum }}</p>
+                  <p><strong>Étage :</strong> {{ apt.floorNum }}</p>
+                  <p><strong>Surface :</strong> {{ apt.surface }} m²</p>
+                  <p><strong>Terrasse :</strong> {{ apt.terrace ? 'Oui' : 'Non' }}</p>
+                </div>
+              </mat-list-item>
+            </mat-list>
+          </mat-card-content>
+  
+          <mat-card-actions>
+            <button mat-raised-button color="primary">Voir Détails</button>
+            <button mat-button color="warn">Supprimer</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  
